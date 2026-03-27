@@ -2,11 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ダウンロード - SDCheck</title>
+    <title>SDCheck - 構造図面チェック支援ソフト</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Thanh menu */
         .navbar {
             background-color: #333;
             padding: 10px;
@@ -42,28 +41,30 @@
         </span>
     </div>
 
-    <h1>SDCheck ダウンロード</h1>
+    <h1>SDCheck ホームページへようこそ</h1>
+    <p>SDCheck は、各種計算ソフトと連携して構造図面をチェックするための支援ソフトです。</p>
 
-    <p>以下のリンクから SDCheck のセットアップファイルをダウンロードできます。</p>
+    <section class="intro">
+        <h2><a href="intro.html">SDCheck の紹介</a></h2>
+    </section>
 
-    <h2>最新版ダウンロード</h2>
-    <p>
-        <a href="#" onclick="checkLogin()" class="btn">
-            SDCheckSetup.exe をダウンロード
-        </a>
-    </p>
+    <section class="manual">
+        <h2><a href="manual.html">使用方法</a></h2>
+    </section>
 
-    <h2>注意事項</h2>
-    <ul>
-        <li>Windows 専用ソフトです。</li>
-        <li>インストール時に警告が表示される場合がありますが、発行元を確認して続行してください。</li>
-        <li>ダウンロードおよび使用は自己責任で行ってください。</li>
-    </ul>
+    <section class="download-page">
+        <h2><a href="download.html">ダウンロードページ</a></h2>
+    </section>
 
-    <p><a href="index.html">← ホームページに戻る</a></p>
+    <section class="license">
+        <h2><a href="copyright.html">著作権及び使用条件</a></h2>
+    </section>
+
+    <footer>
+        <p>SDCheck Copyright (C)2025-2026 Nguyen Thanh Kieu</p>
+    </footer>
 
     <script>
-        // Kiểm tra trạng thái đăng nhập để hiển thị Login hoặc Logout
         const loggedIn = localStorage.getItem("loggedIn");
 
         if (loggedIn === "true") {
@@ -77,14 +78,6 @@
         function logout() {
             localStorage.removeItem("loggedIn");
             window.location.href = "index.html";
-        }
-
-        function checkLogin() {
-            if (localStorage.getItem("loggedIn") === "true") {
-                window.location.href = "downloads/SDCheckSetup.exe";
-            } else {
-                window.location.href = "login.html";
-            }
         }
     </script>
 
