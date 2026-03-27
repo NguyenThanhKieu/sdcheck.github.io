@@ -20,15 +20,32 @@
         <button type="submit">ログイン</button>
     </form>
 
-    <script>
-    function login() {
-        // Ở đây bạn có thể kiểm tra tài khoản thật
-        // Tạm thời chấp nhận mọi tài khoản
-        localStorage.setItem("loggedIn", "true");
+    <p id="error" style="color:red;"></p>
 
-        // Quay lại trang download
-        window.location.href = "download.html";
-    }
+    <script>
+        function login() {
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+
+            // Danh sách tài khoản hợp lệ
+            const validUsers = [
+                { username: "admin", password: "123456" },
+                { username: "kieu", password: "sdcheck" }
+            ];
+
+            // Kiểm tra user/pass
+            const found = validUsers.find(u => u.username === user && u.password === pass);
+
+            if (found) {
+                // Lưu trạng thái đăng nhập
+                localStorage.setItem("loggedIn", "true");
+
+                // Quay lại trang download
+                window.location.href = "download.html";
+            } else {
+                document.getElementById("error").textContent = "ユーザー名またはパスワードが正しくありません。";
+            }
+        }
     </script>
 
 </body>
