@@ -27,7 +27,6 @@
             const user = document.getElementById("username").value;
             const pass = document.getElementById("password").value;
 
-            // 2 tài khoản cố định
             const validUsers = [
                 { username: "admin", password: "123456" },
                 { username: "kieu", password: "sdcheck" }
@@ -36,18 +35,15 @@
             const found = validUsers.find(u => u.username === user && u.password === pass);
 
             if (found) {
-                // Lưu trạng thái đăng nhập
                 localStorage.setItem("loggedIn", "true");
                 localStorage.setItem("username", user);
 
                 // Lấy trang trước khi login
                 const returnPage = localStorage.getItem("returnPage");
 
-                // Nếu có trang trước đó → quay lại đúng trang đó
                 if (returnPage) {
                     window.location.href = returnPage;
                 } else {
-                    // Nếu không có (trường hợp hiếm) → quay về index
                     window.location.href = "index.html";
                 }
             } else {
