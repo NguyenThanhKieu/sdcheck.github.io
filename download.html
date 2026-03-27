@@ -31,10 +31,8 @@
             const loggedIn = localStorage.getItem("loggedIn");
 
             if (loggedIn === "true") {
-                // Đã đăng nhập → cho phép tải file
                 window.location.href = "downloads/SDCheckSetup.exe";
             } else {
-                // Chưa đăng nhập → chuyển sang trang login
                 window.location.href = "login.html";
             }
         }
