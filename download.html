@@ -27,7 +27,7 @@
 
 <body>
 
-    <!-- Thanh menu -->
+    <!-- ⭐ Thanh menu giống 100% index.html -->
     <div class="navbar">
         <a href="index.html">ホーム</a>
         <a href="intro.html">紹介</a>
@@ -36,7 +36,7 @@
         <a href="copyright.html">著作権</a>
 
         <span class="navbar-right">
-            <a href="login.html" id="loginLink">ログイン</a>
+            <a href="login.html" id="loginLink" onclick="savePage()">ログイン</a>
             <a href="#" onclick="logout()" id="logoutLink" style="display:none;">ログアウト</a>
         </span>
     </div>
@@ -62,6 +62,7 @@
     <p><a href="index.html">← ホームページに戻る</a></p>
 
     <script>
+        // ⭐ Hiển thị Login hoặc Logout
         const loggedIn = localStorage.getItem("loggedIn");
 
         if (loggedIn === "true") {
@@ -72,15 +73,25 @@
             document.getElementById("logoutLink").style.display = "none";
         }
 
+        // ⭐ Lưu trang hiện tại trước khi login
+        function savePage() {
+            localStorage.setItem("returnPage", window.location.href);
+        }
+
+        // ⭐ Logout
         function logout() {
             localStorage.removeItem("loggedIn");
+            localStorage.removeItem("username");
+            localStorage.removeItem("returnPage");
             window.location.href = "index.html";
         }
 
+        // ⭐ Kiểm tra login trước khi download
         function checkLogin() {
             if (localStorage.getItem("loggedIn") === "true") {
                 window.location.href = "downloads/SDCheckSetup.exe";
             } else {
+                savePage();
                 window.location.href = "login.html";
             }
         }
